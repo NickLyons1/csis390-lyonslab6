@@ -18,10 +18,11 @@
         function validateEmail() {
 					  let isValid = false;
             const emailAddress = getElementById("emailAddress");
-            //set the textContent of emailError as empty string.
+            const emailError = getElementById("emailError")
+            emailError.textContent("");
             
             if (emailAddress === "" || !emailAddress.includes("@")) {
-                //set the content in emailError to "Please enter a valid email address";
+                emailError.textContent("Please enter a valid email address");
             } else {
                 isValid = true;
                 console.log("Email is valid: ", emailAddress);
@@ -32,6 +33,42 @@
             // This submitRequest is a custom function that will be called when everything is valid
 	            submitRequest();
             }
+
+}
+id("input-form").addEventListener("submit",function(e) {
+    e.preventDefault();
+    submitRequest();
+});
+
+function makeRequest(){
+    let url = "https://macpro.csis410.com/data";
+
+    //create a new form data
+    let params = new FormData();
+    params.append(getElementById("emailForm"),getElementById("emailAddress").value);
+   
+    //Fetch now with a method of POST and the param data in body
+    fetch(url, { method: "POST", body: params})
+      .then(statusCheck)
+      .then((response) => response.json())
+      .then((response) => response.json())
+      .then((data) => updateResults(data))
+      .catch(handleError);
+}  
+
+function updateResults(data){
+    
+}
+
+function handleError(error){
+    console.error(error);
+}
+
+async function statusCheck(res){
+    if(!res.ok){
+        throw new Error(await res.text());
+    }
+    return res;
 }
     </script>
 </body>

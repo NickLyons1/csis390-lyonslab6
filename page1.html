@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Email Validation</h2>
+    Only Siena Email Address:
+    <form id = "emailForm">
+        <input type = "text" id = "emailAddress" name="emailAddress"></form>
+        <input type = "submit" id="emailAddress">
+    </form>
+    <span id="emailError" class="error"></span>
+
+    <script>
+        function validateEmail() {
+					  let isValid = false;
+            const emailAddress = getElementById("emailAddress");
+            //set the textContent of emailError as empty string.
+            
+            if (emailAddress === "" || !emailAddress.includes("@")) {
+                //set the content in emailError to "Please enter a valid email address";
+            } else {
+                isValid = true;
+                console.log("Email is valid: ", emailAddress);
+                
+            }
+            
+            if(isValid){
+            // This submitRequest is a custom function that will be called when everything is valid
+	            submitRequest();
+            }
+}
+    </script>
+</body>
+</html>

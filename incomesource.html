@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Add Income</h1>
+<form id="IncomeSourceName">
+        Income Source Name:<input type="text" id="sourceName" name="Income" >
+</form>
+<form id="AmountIncome">
+    Amount: <input type="text" id="amount" name="income">
+</form>
+<form id="frequencyIncome">
+    <label for="frequency" > Frequency:</label>
+    <select name="frequency"id="frequencyIncome">
+        <option value="monthly">Monthly</option>
+        <option value="one-time">One-Time</option>
+        <option value="bi-weekly">Bi-Weekly</option>
+        <option value="yearly">Yearly</option>
+    </select>
+</form>
+
+<span id="sourceError" class="error"></span>
+
+<input type = "submit" name="income">
+<script>
+    function validateSourceName(){
+        let isValid=false;
+        const SourceName = getElementById("sourceName");
+        const sourceError = getElementById("sourceError");
+        sourceError.textContent("");
+        if(sourceName.length() < 3){
+           sourceError.textContent("Sournce name must be at least 3 characters");
+        }else{
+            isValid=true;
+            console.log("source is valid"+sourceName)
+        }
+        
+    }
+
+    function validateAmount(){
+        let isAmount = false;
+        const amount = getElementById("amount");
+        var value = parseInt(amount);
+        const rounded = value.toFixed(2);
+        if(rounded>0){
+            isValid=true;
+            console.log("Amount entered is valid.");
+        }
+        else{
+            console.log("please enter a amount greater than 0");
+        }
+    }
+
+
+</script>
+</body>
+</html>

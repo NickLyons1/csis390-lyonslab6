@@ -21,7 +21,7 @@
             const emailError = getElementById("emailError")
             emailError.textContent("");
             
-            if (emailAddress === "" || !emailAddress.includes("@")) {
+            if (emailAddress === "" || !emailAddress.endsWith("@siena.edu")) {
                 emailError.textContent("Please enter a valid email address");
             } else {
                 isValid = true;
@@ -57,6 +57,8 @@ function makeRequest(){
 }  
 
 function updateResults(data){
+    console.log("Email has been updated!");
+    console.log("Your email is: " + data);
     
 }
 

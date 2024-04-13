@@ -41,76 +41,77 @@
     Explain This To Your Partner! (optional)
     <input type="text" id="explain">
 </div>
-   <span id="placeError" class="error"></span>
-   <span id="dateError" class="error"></span>
-   <span id="amountError" class="error"></span>
-   <span id="explainError" class="error"></span>
+   
 
-   <button type = "submit" class="btn btn-primary">Submit</button>
+   <button type = "submit" class="btn btn-primary" id="button">Submit</button>
 
 <script>
     function validateExpense(){
         let isValid=false;
-        const place = getElementById("place");
-        const placeError = getElementById("placeError");
-        placeError.textContent("");
-        if(place.length()>=5){
+        const place = document.getElementById("place");
+        if(place.value.length>=5){
             isValid=true;
             console.log("Place of Expense is valid");
         }
         else{
-            placeError.textContent("Place is not real");
-            console.log(placeError);
+            
+            console.log("Place has to be at least 5");
+        }
+        if(isValid){
+            console.log("PLACE ADDED");
         }
     }
     function validateDate(){
         let isValid=false;
-        const dateError=getElementById("dateError");
         const d = new Date("2024-04-12");
-        const date = getElementById("date");
-        dateError.textContent("");
-        if(date<d){
+        const date = document.getElementById("date");
+        let newDate = new Date(date);
+        if(newDate<d){
+            isValid=true;
            console.log("Date is valid");
         }
         else{
-            dateError.textContent("invalid date, must be before today's date");
-            console.log(dateError);
-    
+            console.log("date needs to be before today");
+        }
+        if(isValid){
+            console.log("DATE ADDED");
         }
 
     }
     function validateAmount(){
         let isValid=false;
-        const amountError = getElementById("amountError");
-        const amount = getElementById("amount");
-        amountError.textContent("");
-        if(amount > 0 && amount <50000){
+        const amount = document.getElementById("amount");
+        if(amount.value > 0 && amount.value <50000){
+            isValid=true;
             console.log("amount is valid");
         }
         else{
-            amountError.textContent("invalid amount");
-            console.log(amountError)
+            console.log("amount less than 50000 more than 0")
+        }
+        if(isValid){
+            console.log("AMOUNT ADDED");
         }
     }
 
     function validateLength(){
         let isValid = false;
-        const explain = getElementById("explain");
-        const explainError=getElementById("explainError");
-        if(explain.length()>100){
-            explainError.textContent("Too many words");
-            console.log(explainError)
+        const explain = document.getElementById("explain");
+        if(explain.value.length>100){
+            console.log("Too big of an apology. He/she will never understand");
         }
         else{
             isValid = true;
             console.log("Hopefully he/she still loves you!");
         }
+        if(isValid){
+            console.log("MESSAGE ADDED");
+        }
     }
-
-    date.addEventListener("keydown", validateDate, false);
-    place.addEventListener("keydown", validateExpense, false);
-    amount.addEventListener("keydown", validateAmount, false);
-    explain.addEventListener("keydown", validateLength, false);
+    const button = document.getElementById("button");
+    button.addEventListener("click", validateExpense, false);
+    button.addEventListener("click", validateDate, false);
+    button.addEventListener("click", validateAmount, false);
+    button.addEventListener("click", validateLength, false);
 
 </script>
 

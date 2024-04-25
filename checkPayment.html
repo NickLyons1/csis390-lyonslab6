@@ -44,7 +44,7 @@
      function validateDate(){
         let isValid=false;
         
-        const d = new Date("2024-04-12");
+        const d = new Date().toDateString();
         const date = document.getElementById("date");
         if(date.value>d){
             isValid=true;

@@ -45,7 +45,7 @@ function makeRequest(){
 
     //create a new form data
     let params = new FormData();
-    params.append(getElementById("emailForm"),getElementById("emailAddress").value);
+    params.append("email",0);
    
     //Fetch now with a method of POST and the param data in body
     fetch(url, { method: "POST", body: params})

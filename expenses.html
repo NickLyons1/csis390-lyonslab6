@@ -43,7 +43,7 @@
 </div>
    
 
-   <button type = "submit" class="btn btn-primary" id="button">Submit</button>
+   <button type = "submit" class="btn btn-primary" id="button" onclick="submitForm()">Submit</button>
 
 <script>
     function validateExpense(){
@@ -112,6 +112,12 @@
     button.addEventListener("click", validateDate, false);
     button.addEventListener("click", validateAmount, false);
     button.addEventListener("click", validateLength, false);
+
+    function submitForm(){
+        if(isValid==true){
+            window.location.href="checkPayment.html";
+        }
+    }
 
 </script>
 

@@ -9,16 +9,12 @@
 <body>
     <main class="container">
 <h1>Add Income</h1>
-<form id="IncomeSourceName">
+<form id="IncomeSource">
     <div class="mb-3">
         Income Source Name:<input type="text" class = "form-control" id="sourceName" name="Income">
     </div>
-</form>
-<form id="AmountIncome">
     Amount: <input type="text" class = "form-control" id="amount" name="income">
-</form>
-<form id="frequencyIncome">
-    <label for="frequency" > Frequency:</label >
+    <label for="frequency" class="form-label"> Frequency:</label >
     <select name="frequency" class = "form-control" id="frequencyIncome">
         <option value="monthly">Monthly</option>
         <option value="one-time">One-Time</option>
@@ -29,7 +25,8 @@
 
 <span id="sourceError" class="error"></span>
 
-<button type = "submit" class="btn btn-primary">Submit</button>
+<button type = "submit" class="btn btn-primary" onclick="submitForm()">Submit</button>
+
 <script>
     function validateSourceName(){
         let isValid=false;
@@ -56,6 +53,12 @@
         }
         else{
             console.log("please enter a amount greater than 0");
+        }
+    }
+
+    function submitForm(){
+        if(isValid==true){
+            window.location.href="expenses.html"
         }
     }
 
